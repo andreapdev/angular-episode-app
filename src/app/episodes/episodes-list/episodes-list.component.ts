@@ -21,7 +21,7 @@ export class EpisodesListComponent implements OnInit {
   constructor(private dataService: DataService) {}
 
   getEpisode(id: number) {
-    this.dataService.getEpisode(id);
+    this.dataService.getEpisode(id, this.receivedEpisodes);
   }
 
   ngOnInit() {}

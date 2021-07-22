@@ -1,2 +1,10 @@
-<p>Details:</p>
-<iframe height="100%" width="100%" src="https://rickandmortyapi.com/api/episode/1"></iframe>
+<div *ngIf="goTo; else notShow">
+  <p>Details:{{goTo}}</p>
+  <iframe height="100%" width="100%" src={{goTo}}></iframe>
+</div>
+
+<ng-template #notShow>
+  <p>
+    Click on an episode to see!
+  </p>
+</ng-template>

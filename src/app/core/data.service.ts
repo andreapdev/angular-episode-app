@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
 import { IApiData, IEpisode } from '../shared/interfaces';
@@ -10,23 +10,26 @@ import { IApiData, IEpisode } from '../shared/interfaces';
 export class DataService {
   baseUrl: string = 'https://rickandmortyapi.com/api/episode';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.selection = new BehaviorSubject(this.selectedEpisode);
+  }
 
   getEpisodes(): Observable<IApiData> {
     return this.http
       .get<IApiData>(this.baseUrl)
       .pipe(catchError(this.handleError));
   }
-
-  getEpisode(id: number): Observable<IEpisode> {
-    let selectedEpisode = this.http
-      .get<IEpisode>(this.baseUrl + '/' + id)
-      .pipe(catchError(this.handleError));
-    console.log('clicked' + id);
-    return selectedEpisode;
-  }
-
   selectedEpisode: string;
+  selection: BehaviorSubject<string>;
+
+  getEpisode(id: number, episodes: IEpisode[]) {
+    episodes.forEach(ep => {
+      if (ep.id === id) {
+        this.selection.next(this.baseUrl+"/"+ep.id);
+        return ep;
+      }
+    });
+  }
 
   private handleError(error: any) {
     console.error('server error:', error);
