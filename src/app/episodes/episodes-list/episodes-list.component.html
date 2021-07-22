@@ -1,5 +1,5 @@
 <div class='col p-0 m-0'>
-  <div class='row'>Episode 1</div>
-  <div class='row'>Episode 2</div>
-  <div class='row'>Episode 3</div>
+  <div *ngFor="let episode of receivedEpisodes" class='row'>
+    <div> {{ episode.name }} </div>
+  </div>
 </div>
