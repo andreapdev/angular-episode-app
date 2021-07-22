@@ -1,5 +1,10 @@
 <div class='col p-0 m-0'>
-  <div *ngFor="let episode of receivedEpisodes" class='row'>
-    <div> {{ episode.name }} </div>
+  <div *ngFor="let episode of receivedEpisodes" class='row card m-1 p-1' style="backgroundColor: lightblue;">
+    <div> Name: {{ episode.name }} </div>
+    <div> ID: {{ episode.id }} </div>
+    <div> Code: {{ episode.episode }} </div>
+    <div> Date: {{ episode.air_date }} </div>
+    <div> Characters: {{ episode.characters.length }} </div>
+    <div> URL: <a href='{{ episode.url }}'>Here</a> </div>
   </div>
 </div>

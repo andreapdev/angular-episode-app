@@ -4,4 +4,9 @@ p {
 * {
   box-sizing: border-box;
 }
+.first-row {
+  justify-content: center;
+  width: 100%;
+}
+
 
