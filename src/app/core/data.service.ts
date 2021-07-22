@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
-import { IApiData } from '../shared/interfaces';
+import { IApiData, IEpisode } from '../shared/interfaces';
 
 @Injectable()
 export class DataService {
@@ -18,15 +18,15 @@ export class DataService {
       .pipe(catchError(this.handleError));
   }
 
-  // getEpisode(id: number): Observable<IEpisode> {
-  //   return this.http.get<IEpisode[]>(this.baseUrl).pipe(
-  //     map(episodes => {
-  //       let episode = episodes.filter((ep: IEpisode) => ep.id === id);
-  //       return episode && episode.length ? episode[0] : null;
-  //     }),
-  //     catchError(this.handleError)
-  //   );
-  // }
+  getEpisode(id: number): Observable<IEpisode> {
+    let selectedEpisode = this.http
+      .get<IEpisode>(this.baseUrl + '/' + id)
+      .pipe(catchError(this.handleError));
+    console.log('clicked' + id);
+    return selectedEpisode;
+  }
+
+  selectedEpisode: string;
 
   private handleError(error: any) {
     console.error('server error:', error);

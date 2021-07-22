@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { DataService } from '../../core/data.service';
 
 @Component({
   selector: 'app-episodes-list',
@@ -17,7 +18,11 @@ export class EpisodesListComponent implements OnInit {
 
   receivedEpisodes: any[] = [];
 
-  constructor() {}
+  constructor(private dataService: DataService) {}
+
+  getEpisode(id: number) {
+    this.dataService.getEpisode(id);
+  }
 
   ngOnInit() {}
 }
