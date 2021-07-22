@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../core/data.service';
-import { IEpisode } from '../shared/interfaces';
 
 @Component({
   selector: 'app-details',

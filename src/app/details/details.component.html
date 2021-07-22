@@ -1,7 +1,6 @@
 <div *ngIf="goTo; else notShow">
-  <p>Details:{{goTo}}</p>
-  <!-- <iframe height="100%" width="100%" [src]="goTo | safeUrl"></iframe> -->
-  <iframe height="100%" width="100%" src={{goTo}}></iframe>
+  <p>Details:</p>
+  <iframe height="500px" width="100%" [src]="goTo | safeUrl"></iframe>
 </div>
 
 <ng-template #notShow>
