@@ -8,5 +8,7 @@ p {
   justify-content: center;
   width: 100%;
 }
-
-
+.result-container {
+  height: 10rem;
+  overflow: scroll;
+}

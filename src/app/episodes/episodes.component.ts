@@ -7,6 +7,9 @@ import { IEpisode, IApiData } from '../shared/interfaces';
   templateUrl: './episodes.component.html'
 })
 export class EpisodesComponent implements OnInit {
+  onScroll() {
+    console.log('scrolled!!');
+  }
   episodesData: IEpisode[];
 
   constructor(private dataService: DataService) {}

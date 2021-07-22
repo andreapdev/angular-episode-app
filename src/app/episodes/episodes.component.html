@@ -1,2 +1,3 @@
 <!-- select child component episodes-list -->
-<app-episodes-list [episodes]="episodesData" class='row p-0 m-0'></app-episodes-list>
+<app-episodes-list [episodes]="episodesData" class='row p-0 m-0 result-container' infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50"
+(scrolled)="onScroll()" [scrollWindow]="false" ></app-episodes-list>
