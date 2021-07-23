@@ -1,6 +1,5 @@
-<div class='col p-0 m-0'>
-  <div *ngFor="let episode of receivedEpisodes" class='row card m-1 p-1' style="backgroundColor: lightblue;"
-    (click)="getEpisode(episode.id)">
+<div class='col p-0 m-0 list'>
+  <div *ngFor="let episode of receivedEpisodes" class="row m-1 p-1 episode-info" (click)="getEpisode(episode.id)">
     <div> Name: {{ episode.name }} </div>
     <div> ID: {{ episode.id }} </div>
     <div> Code: {{ episode.episode }} </div>

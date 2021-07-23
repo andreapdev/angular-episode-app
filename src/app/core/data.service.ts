@@ -25,7 +25,7 @@ export class DataService {
   getEpisode(id: number, episodes: IEpisode[]) {
     episodes.forEach(ep => {
       if (ep.id === id) {
-        this.selection.next(this.baseUrl+"/"+ep.id);
+        this.selection.next(this.baseUrl + '/' + ep.id);
         return ep;
       }
     });

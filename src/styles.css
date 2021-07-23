@@ -3,4 +3,27 @@
 h1 {
   text-align: center;
 }
+p {
+  font-family: Lato;
+}
+* {
+  box-sizing: border-box;
+}
+.first-row {
+  justify-content: center;
+  width: 90vw;
+  height: 75vh;
+}
+.result-container {
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x:hidden
+}
 
+.list{
+  height: 10rem;
+}
+
+.episode-info{
+  background-color: lightskyblue;
+}
