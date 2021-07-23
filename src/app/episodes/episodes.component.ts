@@ -9,12 +9,14 @@ import { IEpisode, IApiData } from '../shared/interfaces';
 export class EpisodesComponent implements OnInit {
   onScroll() {
     console.log('scrolled!!');
-    this.dataService
-      .getMoreEpisodes()
-      .subscribe(
-        (episodes: IApiData) =>
-          (this.episodesData = this.episodesData.concat(episodes.results))
-      );
+    if (this.episodesData.length < 41) {
+      this.dataService
+        .getMoreEpisodes()
+        .subscribe(
+          (episodes: IApiData) =>
+            (this.episodesData = this.episodesData.concat(episodes.results))
+        );
+    }
   }
   episodesData: IEpisode[];
 
