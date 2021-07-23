@@ -31,6 +31,14 @@ export class DataService {
     });
   }
 
+  page: number = 1;
+  getMoreEpisodes() {
+    this.page++;
+    return this.http
+      .get<IApiData>(this.baseUrl + '/?page=' + this.page)
+      .pipe(catchError(this.handleError));
+  }
+
   private handleError(error: any) {
     console.error('server error:', error);
     if (error.error instanceof Error) {
